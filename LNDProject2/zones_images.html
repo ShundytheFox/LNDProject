@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo VR</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">VR Turismo</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="information.html">Información</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="formulary.html">Formulario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://www.localhost:8080">Realidad Virtual</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="gallery.html" id="navbardrop" data-toggle="dropdown">
+                    Galería
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item disabled" href="zones_images.html">Visitas</a>
+                    <a class="dropdown-item" href="vr_images.html">Gafas VR</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="ba-0">
+                    <img alt="Card image cap" class="card-img-top" src="img/arucas.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title letter">Iglesia de Arucas
+                        </h4>
+                        <a class="btn btn-primary" data-target="#modalIMG1" data-toggle="modal" href="#">Ver imagen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ba-0">
+                    <img alt="Card image cap" class="card-img-top" src="img/cuevapintada.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title letter">Cueva pintada de Galdar
+                        </h4><a class="btn btn-primary" data-target="#modalIMG2" data-toggle="modal" href="#">Ver
+                            imagen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ba-0">
+                    <img alt="Card image cap" class="card-img-top" src="img/dunas.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title letter">Dunas de Maspalomas
+                        </h4>
+                        <a class="btn btn-primary" data-target="#modalIMG3" data-toggle="modal" href="#">Ver imagen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ba-0">
+                    <img alt="Card image cap" class="card-img-top" src="img/telde.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title letter">Iglesia de Telde
+                        </h4>
+                        <a class="btn btn-primary" data-target="#modalIMG4" data-toggle="modal" href="#">Ver imagen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ba-0">
+                    <img alt="Card image cap" class="card-img-top" src="img/guia.jpg">
+                    <div class="card-body letter">
+                        <h4 class="card-title">Iglesia de Guía
+                        </h4>
+                        <a class="btn btn-primary" data-target="#modalIMG5" data-toggle="modal" href="#">Ver imagen</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" class="modal fade" id="modalIMG1" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="img/arucas.jpg" alt="" style="width:100%">
+                </div>
+                <div class="modal-footer">
+                    <div><a href="img/arucas.jpg" target="_blank">Descargar</a>
+                    </div>
+                    <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal"
+                        type="button">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div aria-hidden="true" class="modal fade" id="modalIMG2" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="img/cuevapintada.jpg" alt="" style="width:100%">
+                </div>
+                <div class="modal-footer">
+                    <div><a href="img/cuevapintada.jpg" target="_blank">Descargar</a>
+                    </div>
+                    <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal"
+                        type="button">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" class="modal fade" id="modalIMG3" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="img/dunas.jpg" alt="" style="width:100%">
+                </div>
+                <div class="modal-footer">
+                    <div><a href="img/dunas.jpg" target="_blank">Descargar</a>
+                    </div>
+                    <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal"
+                        type="button">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" class="modal fade" id="modalIMG4" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="img/telde.jpg" alt="" style="width:100%">
+                </div>
+                <div class="modal-footer">
+                    <div><a href="img/telde.jpg" target="_blank">Descargar</a>
+                    </div>
+                    <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal"
+                        type="button">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" class="modal fade" id="modalIMG5" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="img/guia.jpg" alt="" style="width:100%">
+                </div>
+                <div class="modal-footer">
+                    <div><a href="img/guia.jpg" target="_blank">Descargar</a>
+                    </div>
+                    <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal"
+                        type="button">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <footer>
+        
+    </footer> -->
+</body>
+
+</html>

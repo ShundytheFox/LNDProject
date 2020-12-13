@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo VR</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">VR Turismo</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="information.html">Información</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="formulary.html">Formulario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://www.localhost:8080">Realidad Virtual</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="gallery.html" id="navbardrop" data-toggle="dropdown">
+                    Galería
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="zones_images.html">Visitas</a>
+                    <a class="dropdown-item" href="vr_images.html">Gafas VR</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- Usuario -->
+    <form>
+        <div class="form-group">
+            <label for="usr"><b class="letter">Usuario</b></label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+        <br>
+        <!-- Checkboxes -->
+        <label>
+            <b class="letter">Interés</b>
+        </label>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value=""><b class="letter">Me interesa probar la
+                    tecnología VR</b>
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value=""><b class="letter">Me interesa la guía
+                    turística</b>
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value=""><b class="letter">Otro</b>
+            </label>
+        </div>
+        <br>
+        <!-- Lista de selección -->
+        <div class="form-group">
+            <label>
+                <b class="letter">Tu visor de VR:</b>
+            </label>
+            <select class="form-control" id="sel1">
+                <option>Valve Index</option>
+                <option>HTC Vive</option>
+                <option>Oculus Quest</option>
+                <option>Cardboard</option>
+                <option>Otro</option>
+            </select>
+        </div>
+        <br>
+        <!-- Selección de edad -->
+        <p><b class="letter">Edad</b></p>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio"><b class="letter">Menor de 18 años</b>
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio"><b class="letter">Mayor de 18 años</b>
+            </label>
+        </div>
+        <br>
+        <!-- Texto -->
+        <div class="form-group">
+            <label for="comment"><b class="letter">Comentario:</b></label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <!-- Subir imagen -->
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Selecciona el archivo</label>
+        </div>
+        <script>
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
+        <br>
+        <br>
+        <!-- Botones-->
+        <div class="btn-group">
+            <a href="./formulary.html" class="btn btn-primary">
+                <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Guardar</a>
+            <a href="./formulary.html" class="btn btn-default letter">Reset</a>
+        </div>
+    </form>
+
+    <!-- <footer>
+
+    </footer> -->
+</body>
+
+</html>
