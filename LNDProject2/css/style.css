@@ -83,3 +83,33 @@ form{
 background-color:rgb(83, 83, 177);
 text-align: center;
 }
+
+#error-age {
+  display: none;
+  color: red;
+}
+
+#error-vr {
+  display: none;
+  color: red;
+}
+
+#error-email {
+  display: none;
+  color: red;
+}
+
+#error-user {
+  display: none;
+  color: red;
+}
+
+#error-radio {
+  display: none;
+  color: red;
+}
+
+#error-comment {
+  display: none;
+  color: red;
+}
