@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDgsvCJDdLARUri45pNCW_xHjQY7IrIuGU",
+            authDomain: "visitas-vr.firebaseapp.com",
+            databaseURL: "https://visitas-vr-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "visitas-vr",
+            storageBucket: "visitas-vr.appspot.com",
+            messagingSenderId: "101580046169",
+            appId: "1:101580046169:web:4926fead5ef8c7498bd648",
+            measurementId: "G-K7P2V5HJS5"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/8ba1bb13bd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/auth.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">VR Turismo</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="information.html">Información</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="formulary.html">Formulario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://www.localhost:8080">Realidad Virtual</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="login.html">Visitas</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                    Galería
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="zones_images.html">Visitas</a>
+                    <a class="dropdown-item" href="vr_images.html">Gafas VR</a>
+                </div>
+            </li>
+        </ul>
+        <div class="container">
+            <div class="row"></div>
+            <button id="sign-out" type="submit" class="btn btn-primary">Cerrar sesión</button>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div id="login" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <form>
+                    <div class="form-group">
+                        <label class="letter" for="email">Correo electrónico:</label>
+                        <input type="email" class="form-control" placeholder="Introduce tu email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="letter" for="password">Contraseña:</label>
+                        <input type="password" class="form-control" placeholder="Introduce tu contraseña" id="password">
+                    </div>
+                    <button id="sign-in" type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="database" class="col-sm-7">
+                <!-- Tabla con las visitas -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="letter" colspan="2">Lugar a visitar</th>
+                            <th class="letter" colspan="2">Requisitos para la visita</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th class="letter">Lugar</th>
+                            <th class="letter">Isla</th>
+                            <th class="letter">Edad mínima</th>
+                            <th class="letter">Modelo VR</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-visits">
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="col-sm-1">
+                <!-- Espacio -->
+            </div>
+            <div id="send-data1" class="col-sm-4">
+                <form id="form-visits">
+                    <div class="form-group">
+                        <label class="letter" for="island">Isla de la visita:</label>
+                        <br>
+                        <input type="text" class="form-control" name="vrIsland" value="" id="island">
+                        <div id="error-comment">*No deje el hueco vacío</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="letter" for="place">Lugar de la visita:</label>
+                        <br>
+                        <input type="text" class="form-control" name="vrPlace" value="" id="place">
+                        <div id="error-user">*No deje el hueco vacío</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="letter" for="device-model">Modelo del headset:</label>
+                        <br>
+                        <input type="text" class="form-control" name="deviceModel" value="" id="device-model">
+                        <div id="error-radio">*No deje el hueco vacío</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="letter" for="age">Edad mínima:</label>
+                        <br>
+                        <input type="text" class="form-control" name="age" value="" id="age">
+                        <div id="error-age">*Edad no válida</div>
+                    </div>
+                    <input type="submit" name="submit" Value="Crear visita" id="send-data">
+                </form>
+                <!-- Formulario para añadir/modificar -->
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="ba-0">
+                            <div id="images-from-firebase">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="send-data2" class="col-sm-4">
+
+                        <form id="form-imagenes">
+                            <a class="letter">Subir imágenes: </a>
+                            <label for="file" class="btn btn-file">
+                                <input type="file" name="file" id="file" class="hidden">
+                                <img width="100" src="img/upload.png" class="img-responsive" alt="upload-images">
+                            </label>
+                        </form>
+                        <div class="hidden" id="bar-for-progress">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100" id="progress">
+                                    <span class="sr-only">70% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="col-sm-4">
+            <a type="application/rss+xml" href="rss.xml">
+                <img width="30" src="img/rss.png" alt="rss-logo" class="img-thumbnail">
+            </a>
+            <a href="rss.xml" class="center">Enlace a nuestro RSS</a>
+        </div>
+
+    </footer>
+</body>
+
+</html>

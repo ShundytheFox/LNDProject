@@ -78,7 +78,7 @@ function sendFormularytoFirebase(event) {
 function data(formVR) {
     refFormulary = firebase.database().ref().child("formulario");
     refFormulary.push({
-        Usuario: formVR.Usuario.value,   // TIBU: He comentado las siguientes líneas que debes corregir tú
+        Usuario: formVR.Usuario.value,
         Age: formVR.age.value,
         Email: formVR.Email.value,
         Satisfaction: formVR.Satisfaction.value,
